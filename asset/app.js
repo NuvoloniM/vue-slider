@@ -19,14 +19,15 @@ var app = new Vue (
         el: '#root',
         data: {
             immagini: [
-                'https://source.unsplash.com/random/900x600',
-                'https://source.unsplash.com/random/900x600/?Shoes',
-                'https://source.unsplash.com/random/900x600/?Fruit',
-                'https://source.unsplash.com/random/900x600/?City',
-                'https://source.unsplash.com/random/900x600/?Beach'
+                'https://source.unsplash.com/random/800x500',
+                'https://source.unsplash.com/random/800x500/?Shoes',
+                'https://source.unsplash.com/random/800x500/?Fruit',
+                'https://source.unsplash.com/random/800x500/?City',
+                'https://source.unsplash.com/random/800x500/?Beach'
             ],
             //instanzio una variabile per indicare l'indice dell'array immagini che deve essere visualizzato
             index: 0,
+            currentImgIndex: [],
         },
         methods: {
             //creo funzione per mostrare l'immagine corrente, ovvero quella fomraa dall'immagine dell'array con l'index
@@ -49,7 +50,7 @@ var app = new Vue (
                 } else{
                     return this.index -= 1;
                 }    
-            } 
+            }
         }
     }
 )

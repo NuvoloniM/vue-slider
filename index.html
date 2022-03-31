@@ -17,9 +17,20 @@
                 <div class="col-2">
                     <button @click="prev">Bottone sx</button>
                 </div>
-                <div class="col-8">
+                <div class="col-8 position-relative">
                     <!-- mostro l'immagine con l'index -->
                     <img :src="currentImg()" alt="">
+                    <!-- creo container di segnalatori posizione array -->
+                    <div class="position-absolute bottom-0 start-50 translate-middle-x rounded-pill bg-dark py-3 px-5 d-flex align-items-center justify-content-between">
+                        <!-- uso ciclo for di vue per creare tanti segni quanti elem in array immagini -->
+                        <div v-for="element in immagini">
+                            <div class="rounded-circle bg-white p-2 mx-2"></div>
+                        </div>
+                        <!-- <div class="rounded-circle bg-white p-2 mx-2"></div>
+                        <div class="rounded-circle bg-white p-2 mx-2"></div>
+                        <div class="rounded-circle bg-white p-2 mx-2"></div>
+                        <div class="rounded-circle bg-white p-2 mx-2"></div> -->
+                    </div>
                 </div>
                 
                 <div class="col-2">
