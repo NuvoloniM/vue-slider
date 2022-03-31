@@ -14,17 +14,22 @@
     <div id="root">
         <div class="container text-center py-5">
             <div class="row align-items-center">
+                <div class="text-center py-4">
+                    <h1>SLIDER</h1>
+                </div>
                 <div class="col-2">
-                    <button @click="prev">Bottone sx</button>
+                    <button @click="prev" class="btn py-5 px-2 fs-2">
+                        <i class="fa-solid fa-circle-arrow-left fa-2xl text-primary"></i>
+                    </button>
                 </div>
                 <div class="col-8 position-relative">
                     <!-- mostro l'immagine con l'index -->
                     <img :src="currentImg()" alt="">
                     <!-- creo container di segnalatori posizione array -->
-                    <div class="position-absolute bottom-0 start-50 translate-middle-x rounded-pill bg-dark py-3 px-5 d-flex align-items-center justify-content-between">
+                    <div class="position-absolute bottom-0 start-50 translate-middle-x rounded-pill bg-dark opacity-75 py-3 px-5 my-3 d-flex align-items-center justify-content-between">
                         <!-- uso ciclo for di vue per creare tanti segni quanti elem in array immagini -->
-                        <div v-for="(element,index) in immagini">
-                            <div class="rounded-circle p-2 mx-2" v-bind:class = "(index == currentImgIndex)?'active':'disabled'"></div>
+                        <div v-for="element in immagini">
+                            <div class="rounded-circle p-2 mx-2" :class="element.class"></div>
                         </div>
                         <!-- <div class="rounded-circle bg-white p-2 mx-2"></div>
                         <div class="rounded-circle bg-white p-2 mx-2"></div>
@@ -34,7 +39,9 @@
                 </div>
                 
                 <div class="col-2">
-                    <button @click="succ">Bottone dx</button>
+                    <button @click="succ" class="btn py-5 px-2 fs-2">
+                        <i class="fa-solid fa-circle-arrow-right fa-2xl text-primary"></i>
+                    </button>
                 </div>
             </div>
         </div>

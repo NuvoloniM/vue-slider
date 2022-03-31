@@ -19,40 +19,62 @@ var app = new Vue (
         el: '#root',
         data: {
             immagini: [
-                'https://source.unsplash.com/random/800x500',
-                'https://source.unsplash.com/random/800x500/?Shoes',
-                'https://source.unsplash.com/random/800x500/?Fruit',
-                'https://source.unsplash.com/random/800x500/?City',
-                'https://source.unsplash.com/random/800x500/?Beach'
+                {
+                    media: 'https://source.unsplash.com/random/800x500',     
+                    class: 'active'
+                },
+                {
+                    media: 'https://source.unsplash.com/random/800x500/?Shoes',     
+                    class: 'disabled'
+                },
+                {
+                    media: 'https://source.unsplash.com/random/800x500/?Fruit',     
+                    class: 'disabled'
+                },
+                {
+                    media: 'https://source.unsplash.com/random/800x500/?City',    
+                    class: 'disabled'
+                },
+                {
+                    media: 'https://source.unsplash.com/random/800x500/?Beach',     
+                    class: 'disabled'
+                },
             ],
             //instanzio una variabile per indicare l'indice dell'array immagini che deve essere visualizzato
             index: 0,
-            currentImgIndex: 0,
         },
+        
         methods: {
             //creo funzione per mostrare l'immagine corrente, ovvero quella fomraa dall'immagine dell'array con l'index
             currentImg: function(){
-                console.log(this.immagini[this.index])
-                return this.immagini[this.index]
+                console.log(this.immagini[this.index].media)
+                console.log(this.immagini[this.index].class)
+                return this.immagini[this.index].media
             },
             //creo funzione che, al click, aggiunge 1 all'index dell'img
             succ: function(){
                 if (this.index == (this.immagini.length - 1)) {
-                    this.currentIndex = 0;
                     this.index = 0;
                 } else{
                     this.index += 1;
-                    this.currentIndex = this.index;
-                }    
+                }  
+                this.active();
             },
             //creo funzione che sottrae 1 all'index
             prev: function() {
                 if (this.index == 0) {
-                    return this.index = this.immagini.length - 1;
+                    this.index = this.immagini.length - 1;
                 } else{
-                    return this.index -= 1;
-                }    
+                    this.index -= 1;
+                }
+                this.active();
             },
-        }
+            active: function() {
+                this.immagini.forEach((element,index) => {
+                    return element.class = 'disabled';
+                });
+                return this.immagini[this.index].class = 'active';
+            },
+        }   
     }
 )
