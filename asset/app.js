@@ -20,10 +20,10 @@ var app = new Vue (
         data: {
             immagini: [
                 'https://source.unsplash.com/random/900x600',
-                'https://source.unsplash.com/random/900x600',
-                'https://source.unsplash.com/random/900x600',
-                'https://source.unsplash.com/random/900x600',
-                'https://source.unsplash.com/random/900x600'
+                'https://source.unsplash.com/random/900x600/?Shoes',
+                'https://source.unsplash.com/random/900x600/?Fruit',
+                'https://source.unsplash.com/random/900x600/?City',
+                'https://source.unsplash.com/random/900x600/?Beach'
             ],
             //instanzio una variabile per indicare l'indice dell'array immagini che deve essere visualizzato
             index: 0,
@@ -36,11 +36,19 @@ var app = new Vue (
             },
             //creo funzione che, al click, aggiunge 1 all'index dell'img
             succ: function(){
-                this.index += 1;
+                if (this.index == (this.immagini.length - 1)) {
+                    return this.index = 0;
+                } else{
+                    return this.index += 1;
+                }    
             },
             //creo funzione che sottrae 1 all'index
             prev: function() {
-                this.index -= 1;
+                if (this.index == 0) {
+                    return this.index = this.immagini.length - 1;
+                } else{
+                    return this.index -= 1;
+                }    
             } 
         }
     }
