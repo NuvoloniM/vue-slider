@@ -27,7 +27,7 @@ var app = new Vue (
             ],
             //instanzio una variabile per indicare l'indice dell'array immagini che deve essere visualizzato
             index: 0,
-            currentImgIndex: [],
+            currentImgIndex: 0,
         },
         methods: {
             //creo funzione per mostrare l'immagine corrente, ovvero quella fomraa dall'immagine dell'array con l'index
@@ -38,9 +38,11 @@ var app = new Vue (
             //creo funzione che, al click, aggiunge 1 all'index dell'img
             succ: function(){
                 if (this.index == (this.immagini.length - 1)) {
-                    return this.index = 0;
+                    this.currentIndex = 0;
+                    this.index = 0;
                 } else{
-                    return this.index += 1;
+                    this.index += 1;
+                    this.currentIndex = this.index;
                 }    
             },
             //creo funzione che sottrae 1 all'index
@@ -50,7 +52,7 @@ var app = new Vue (
                 } else{
                     return this.index -= 1;
                 }    
-            }
+            },
         }
     }
 )
