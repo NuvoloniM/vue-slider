@@ -43,7 +43,9 @@ var app = new Vue (
             //instanzio una variabile per indicare l'indice dell'array immagini che deve essere visualizzato
             index: 0,
         },
-        
+        created() {
+            this.autorun();
+        },
         methods: {
             //creo funzione per mostrare l'immagine corrente, ovvero quella fomraa dall'immagine dell'array con l'index
             currentImg: function(){
@@ -75,6 +77,9 @@ var app = new Vue (
                 });
                 return this.immagini[this.index].class = 'active';
             },
+            autorun: function() {
+                setInterval(this.succ,3000);
+            }
         }   
     }
 )
