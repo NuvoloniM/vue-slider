@@ -79,7 +79,7 @@ var app = new Vue (
             },
             autorun: function() {
                 setInterval(this.succ,3000);
-            }
+            },
         }   
     }
 )
