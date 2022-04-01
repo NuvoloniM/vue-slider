@@ -24,13 +24,11 @@
                 </div>
                 <div class="col-8 position-relative">
                     <!-- mostro l'immagine con l'index -->
-                    <img :src="currentImg()" alt="">
+                    <img :src="immagini[index].media" alt="">
                     <!-- creo container di segnalatori posizione array -->
                     <div class="position-absolute bottom-0 start-50 translate-middle-x rounded-pill bg-dark opacity-75 py-3 px-5 my-3 d-flex align-items-center justify-content-between">
                         <!-- uso ciclo for di vue per creare tanti segni quanti elem in array immagini -->
-                        <div v-for="(element,index) in immagini">
-                            <div class="rounded-circle p-2 mx-2" :class="element.class" :id="index" v-on:click="element.class = 'active'"></div>
-                        </div>
+                        <div v-for="(element,i) in immagini" class="rounded-circle p-2 mx-2" :class="(i == index) ? 'active' : 'disabled' " @click="clickDots(i)"></div>
                         <!-- <div class="rounded-circle bg-white p-2 mx-2"></div>
                         <div class="rounded-circle bg-white p-2 mx-2"></div>
                         <div class="rounded-circle bg-white p-2 mx-2"></div>

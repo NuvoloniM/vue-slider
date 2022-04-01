@@ -47,12 +47,6 @@ var app = new Vue (
             this.autorun();
         },
         methods: {
-            //creo funzione per mostrare l'immagine corrente, ovvero quella fomraa dall'immagine dell'array con l'index
-            currentImg: function(){
-                console.log(this.immagini[this.index].media)
-                console.log(this.immagini[this.index].class)
-                return this.immagini[this.index].media
-            },
             //creo funzione che, al click, aggiunge 1 all'index dell'img
             succ: function(){
                 if (this.index == (this.immagini.length - 1)) {
@@ -80,6 +74,11 @@ var app = new Vue (
             autorun: function() {
                 setInterval(this.succ,3000);
             },
+            clickDots: function(indexPhotos){
+                console.log(indexPhotos);
+                this.index = indexPhotos;
+                
+            }
         }   
     }
 )
